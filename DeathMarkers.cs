@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FMOD.Studio;
 using Microsoft.Xna.Framework;
 using Monocle;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 
 namespace Celeste.Mod.DeathMarkers
 {
@@ -58,17 +58,22 @@ namespace Celeste.Mod.DeathMarkers
 
 		private PlayerDeadBody Player_Die(On.Celeste.Player.orig_Die orig, Player self, Microsoft.Xna.Framework.Vector2 direction, bool evenIfInvincible, bool registerDeathInStats)
 		{
-			Vector2 newlocation = self.Position;
-            newlocation.Y -= 16;
-			deaths.Add(newlocation);
+			if(Settings.RecordDeaths) {
+				Vector2 newlocation = self.Position;
+                newlocation.Y -= 16;
+                deaths.Add(newlocation);            
+			}
 
 			deathspopupdelays.Clear();
 
-			deaths.ForEach((location) =>
+			deaths.ForEach((_) =>
             {            
-				deathspopupdelays.Add(GetRandom.NextFloat(0.5f));
-            });
-			deathspopupdelays[deaths.Count - 1] = 0f;
+				deathspopupdelays.Add(GetRandom.NextFloat(0.25f));
+            });         
+
+			if(Settings.RecordDeaths) {
+				deathspopupdelays[deaths.Count - 1] = 0f;
+			}
 
 			deathTimer = 0f;
 
@@ -78,7 +83,7 @@ namespace Celeste.Mod.DeathMarkers
 
 		private void PlayerDeadBody_Render(On.Celeste.PlayerDeadBody.orig_Render orig, PlayerDeadBody self)
 		{
-			if (Settings.Enabled) {
+			if (Settings.DisplayDeaths) {
                 Level level = self.Scene as Level;
                 int i = 0;
 
@@ -100,6 +105,7 @@ namespace Celeste.Mod.DeathMarkers
                     i++;
                 });
             }  
+
 			orig(self);
 		}
 
@@ -117,6 +123,16 @@ namespace Celeste.Mod.DeathMarkers
 			}
 
 			orig(self, playerIntro, isFromLoader);
-		}      
+		}
+
+		public override void CreateModMenuSection(TextMenu menu, bool inGame, EventInstance snapshot)
+        {
+            base.CreateModMenuSection(menu, inGame, snapshot);
+
+            menu.Add(new TextMenu.Button(Dialog.Clean("modoptions_deathmarkers_resetdeaths")).Pressed(() => {
+				deaths.Clear();
+				Audio.Play("event:/ui/main/savefile_delete");
+            }));
+        }
     }
 }

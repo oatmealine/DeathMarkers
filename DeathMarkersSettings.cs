@@ -2,6 +2,7 @@
 {
 	class DeathMarkersSettings : EverestModuleSettings
     {
-		public bool Enabled { get; set; } = true;
+		public bool DisplayDeaths { get; set; } = true;
+		public bool RecordDeaths { get; set; } = true;
     }
 }
