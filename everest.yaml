@@ -1,0 +1,6 @@
+﻿- Name: DeathMarkers
+  Version: 1.0.0
+  DLL: bin/Release/DeathMarkers.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.586.0
