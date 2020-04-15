@@ -58,6 +58,11 @@ namespace Celeste.Mod.DeathMarkers
 
 		private PlayerDeadBody Player_Die(On.Celeste.Player.orig_Die orig, Player self, Microsoft.Xna.Framework.Vector2 direction, bool evenIfInvincible, bool registerDeathInStats)
 		{
+			PlayerDeadBody result = orig(self, direction, evenIfInvincible, registerDeathInStats);
+			if (result == null) {
+				return null;
+			}
+			
 			if(Settings.RecordDeaths) {
 				Vector2 newlocation = self.Position;
                 newlocation.Y -= 16;
@@ -77,7 +82,6 @@ namespace Celeste.Mod.DeathMarkers
 
 			deathTimer = 0f;
 
-			PlayerDeadBody result = orig(self, direction, evenIfInvincible, registerDeathInStats);
 			return result;
 		}
 
