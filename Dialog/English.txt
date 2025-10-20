@@ -1,1 +1,7 @@
-modoptions_deathmarkers_resetdeaths= Clear Deaths
+modoptions_deathmarkers_enabled=Enabled
+modoptions_deathmarkers_enabled_desc=Controls both saving and showing deaths
+modoptions_deathmarkers_mode=Save Mode
+modoptions_deathmarkers_mode_desc=Whether to save deaths on the Session (clears on level exit) or Save Data (permanent)
+modoptions_deathmarkers_clumpdeaths=Clump Deaths
+modoptions_deathmarkers_clumpdeaths_desc=Clump nearby deaths. Prevents overlapping markers
+modoptions_deathmarkers_cleardeaths=Clear Deaths

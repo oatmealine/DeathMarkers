@@ -1,7 +1,6 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeathMarkers", "DeathMarkers.csproj", "{A865C266-4899-4E8B-80AF-60B5CBFCB895}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeathMarkers", "Source\DeathMarkers.csproj", "{472281A7-9373-412A-8E8E-5B603857A9D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A865C266-4899-4E8B-80AF-60B5CBFCB895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A865C266-4899-4E8B-80AF-60B5CBFCB895}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A865C266-4899-4E8B-80AF-60B5CBFCB895}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A865C266-4899-4E8B-80AF-60B5CBFCB895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472281A7-9373-412A-8E8E-5B603857A9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472281A7-9373-412A-8E8E-5B603857A9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472281A7-9373-412A-8E8E-5B603857A9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472281A7-9373-412A-8E8E-5B603857A9D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
